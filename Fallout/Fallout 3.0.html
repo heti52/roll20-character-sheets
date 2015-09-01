@@ -22,7 +22,7 @@
         </tr>
         <tr>
             <td><input type="text" class="sheet-text_left" name="attr_titlecharacter_race" value="Race" readonly />&nbsp;<input type="text" class="sheet-text_right" name="attr_character_race"  /></td>
-            <td><input type="text" class="sheet-text_left" name="attr_titlecharacter_hair" value="Hair" readonly />&nbsp;<input type="text" class="sheet-text_right" name="attr_character_weight"  /></td>
+            <td><input type="text" class="sheet-text_left" name="attr_titlecharacter_hair" value="Hair" readonly />&nbsp;<input type="text" class="sheet-text_right" name="attr_character_hair"  /></td>
         </tr>
     </table>
     <input type="text" class="sheet-text_center" name="attr_title_character_appearance" value="Appearance" style="width:98%" readonly />
@@ -114,7 +114,7 @@
             <td>Action Points</td>
             <td><input type="number" class="sheet-number" name="attr_actionpoints" value='@{mod-actionpoints} + @{base-actionpoints}' disabled="true"/></td>
             <td><input type="number" class="sheet-number" name="attr_mod-actionpoints" value="0" /></td>
-            <td><input type="number" class="sheet-number" name="attr_base-actionpoints" value='floor(@{agility}/2)' disabled="true" /></td>
+            <td><input type="number" class="sheet-number" name="attr_base-actionpoints" value='floor(@5+{agility}/2)' disabled="true" /></td>
             <td><input type="text"   class="sheet-number" name="attr_basetext-actionpoints" value="5 + (AG/2, round down)" readonly /></td>
         </tr>
         <tr>
@@ -131,12 +131,12 @@
             <td><input type="number" class="sheet-number" name="attr_base-critical_chance" value="@{luck}" disabled="true" /></td>
             <td><input type="text"   class="sheet-number" name="attr_basetext-critical_chance" value="(LU)" readonly /></td>
         </tr>
-        <tr>
-            <td>Healing Rate</td>
-            <td><input type="number" class="sheet-number" name="attr_healing_rate" value='@{mod-healing_rate} + @{base-healing_rate}' disabled="true"/></td>
-            <td><input type="number" class="sheet-number"name="attr_mod-healing_rate" value="0" /></td>
-            <td><input type="number" class="sheet-number" name="attr_base-healing_rate" value='floor(@{endurance}/3)' disabled="true" /></td>
-            <td><input type="text"   class="sheet-number" name="attr_basetext-healing_rate" value="(EN/3, round down)" readonly /></td>
+         <tr>
+            <td>Critical Fail</td>
+            <td><input type="number" class="sheet-number" name="attr_critical_fail" value='@{mod-critical_chance} + @{base-critical_chance}' disabled="true"/></td>
+            <td><input type="number" class="sheet-number"name="attr_mod-critical_fail" value="0" /></td>
+            <td><input type="number" class="sheet-number" name="attr_base-critical_fail" value="89+@{luck}" disabled="true" /></td>
+            <td><input type="text"   class="sheet-number" name="attr_basetext-critical_fail" value="(LU)" readonly /></td>
         </tr>
         <tr>
             <td>Implant Endurance </td>
@@ -220,7 +220,7 @@
             <td colspan="2" text-align="center">Base</td>
         </tr>
         <tr>
-            <td><button class="sheet-skill_button" type='roll' name="attr_roll-athleticism" value='/em @{character_name} rolls Small Guns skill [[1d100]], compared to [[@{athleticism}]]' /></td>
+            <td><button class="sheet-skill_button" type='roll' name="attr_roll-athleticism" value='/em @{character_name} rolls Athleticism check. Skill + 1d100. [[@{athleticism}+1d100]]' /></td>
             <td>Athleticism</td>
             <td><input type="number" class="sheet-number" name="attr_athleticism" value="@{mod-athleticism} + @{base-athleticism}" disabled="true"/></td>
             <td><input type="number" class="sheet-number"name="attr_mod-athleticism" value="0" /></td>
